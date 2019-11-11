@@ -76,12 +76,12 @@ resource "aws_instance" "this" {
     var.tags,
   )
 
-  volume_tags = merge(
-    {
-      "Name" = var.instance_count > 1 || var.use_num_suffix ? format("%s-%d", var.name, count.index + 1) : var.name
-    },
-    var.volume_tags,
-  )
+#  volume_tags = merge(
+#    {
+#      "Name" = var.instance_count > 1 || var.use_num_suffix ? format("%s-%d", var.name, count.index + 1) : var.name
+#    },
+#    var.volume_tags,
+#  )
 
   credit_specification {
     cpu_credits = local.is_t_instance_type ? var.cpu_credits : null
